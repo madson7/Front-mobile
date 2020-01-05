@@ -1,10 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
 export default function App() {
 	return (
 		<View style={styles.container}>
-			<Text>index</Text>
+			<Text>Bem-vindos</Text>
+			<Button title="Entrar" />
+			<Button title="Registrar" />
 		</View>
 	);
 }
@@ -17,10 +19,3 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 	},
 });
-
-App.navigationOptions = {
-	title: 'Painel',
-	headerStyle: {
-		backgroundColor: '#7159c1',
-	},
-};

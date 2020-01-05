@@ -1,14 +1,18 @@
-import { createAppContainer } from 'react-navigation';
+import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 import { createDrawerNavigator } from 'react-navigation-drawer';
-//import { createStackNavigator } from 'react-navigation-stack';
+import { createStackNavigator } from 'react-navigation-stack';
 
-import Index from './pages/index';
-import Home from './pages/home';
+import Index from './index';
+import Login from './pages/login';
+import Registrar from './pages/registrar';
 
 const Routes = createAppContainer(
-	createDrawerNavigator({
+	createSwitchNavigator({
 		Index,
-		Home,
+	}),
+	createStackNavigator({
+		Login,
+		Registrar,
 	})
 );
 
