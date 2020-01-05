@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Frontend mobile",
+    "name": "Front-end mobile",
     "slug": "front-mobile",
     "privacy": "public",
     "sdkVersion": "36.0.0",
@@ -15,7 +15,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#3333"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
