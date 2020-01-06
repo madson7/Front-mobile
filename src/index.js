@@ -3,7 +3,6 @@ import { Button } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
-import DetailsScreen from './pages/DetailsScreen';
 import LoginScreen from './pages/LoginScreen';
 
 import { StyledView, StyledImage, ViewButton } from './styles';
@@ -41,7 +40,6 @@ class HomeScreen extends React.Component {
 const RootStack = createStackNavigator({
 	Home: HomeScreen,
 	Login: LoginScreen,
-	//Details: DetailsScreen,
 
 	initialRouteName: 'Home',
 });
