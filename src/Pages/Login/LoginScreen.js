@@ -9,6 +9,13 @@ const LoginScreen = () => (
 
 LoginScreen.navigationOptions = {
 	title: 'Login',
+	headerStyle: {
+		backgroundColor: '#219653',
+	},
+	headerTintColor: '#000000',
+	headerTitleStyle: {
+		fontWeight: 'bold',
+	},
 };
 export default LoginScreen;
 

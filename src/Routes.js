@@ -4,7 +4,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 import HomeScreen from './Pages/Home/HomeScreen';
 import LoginScreen from './Pages/Login/LoginScreen';
-import SignUpScreen from './Pages/SignUp/SignUp';
+import SignUpScreen from './Pages/SignUp/SignUpScreen';
 
 const RootStack = createStackNavigator({
 	Home: HomeScreen,
