@@ -5,12 +5,12 @@ import { StyledView, StyledImage, ViewButton } from './styles';
 
 const HomeScreen = ({ navigation }) => (
 	<StyledView>
-		<StyledImage source={require('../../assets/Logo.png')} />
+		<StyledImage source={require('../../../assets/Logo.png')} />
 		<ViewButton>
 			<Button title="Login" onPress={() => navigation.navigate('Login')} />
 		</ViewButton>
 		<ViewButton>
-			<Button title="Login" onPress={() => navigation.navigate('Login')} />
+			<Button title="SignUp" onPress={() => navigation.navigate('SignUp')} />
 		</ViewButton>
 	</StyledView>
 );
