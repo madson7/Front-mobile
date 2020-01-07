@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Index from './src/index'
+import Routes from './src/Routes'
 
 export default function App() {
   return (
-    <Index />
+    <Routes />
   );
 }
