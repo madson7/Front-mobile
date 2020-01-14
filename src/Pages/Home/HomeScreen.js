@@ -24,7 +24,7 @@ export default class HomeScreen extends Component {
 	}
 
 	loadProducts = async () => {
-		const response = await api.get('/products');
+		const response = await api.get('/Teste');
 		const { docs } = response.data;
 		this.setState({ docs });
 	};
