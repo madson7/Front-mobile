@@ -1,11 +1,29 @@
 import React from 'react';
-import { StyleSheet, Button, View } from 'react-native';
+import { View, TextInput, Button } from 'react-native';
 
-const LoginScreen = ({ navigation }) => (
-	<View style={styles.container}>
-		<Button title="Home" onPress={() => navigation.navigate('Home')} />
+import { withFormik } from 'formik';
+
+import { StyledView, ViewButton } from './styles';
+
+const Form = props => (
+	<View>
+		<TextInput value={props.values.email} onChangeText={text => props.setFieldValue('email', text)} />
+
+		<TextInput value={props.values.password} onChangeText={text => props.setFieldValue('password', text)} />
+
+		<Button onPress={props.handleSubmit} title="Login" />
 	</View>
 );
+
+const teste = "withFormik({";/*
+	mapPropsToValues: () => ({ email: '', password: '' }),
+  
+	handleSubmit: (values) => {
+	  console.log(values);
+	}
+  })(Form);*/
+
+const LoginScreen = ({ navigation }) => <StyledView>{teste}</StyledView>;
 
 LoginScreen.navigationOptions = {
 	title: 'Login',
@@ -18,12 +36,3 @@ LoginScreen.navigationOptions = {
 	},
 };
 export default LoginScreen;
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: '#333333',
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
-});

@@ -34,7 +34,7 @@ export default class HomeScreen extends Component {
 			<View>
 				<Text>Home</Text>
 				{this.state.docs.map(product => (
-					<Text key={product._id}>{product.title}</Text>
+					<Text key={product._id}>{product._id}</Text>
 				))}
 			</View>
 		);
