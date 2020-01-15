@@ -1,32 +1,64 @@
-import React from 'react';
-import { View, TextInput, Button } from 'react-native';
+import * as yup from 'yup';
+import { Formik } from 'formik';
+import { StyleSheet, Text, View, TextInput, Button, Alert } from 'react-native';
 
-import { withFormik } from 'formik';
+import React, { Fragment } from 'react';
 
-import { StyledView, ViewButton } from './styles';
+import { StyledView, StyledView2, ViewButton, FormikView } from './styles';
 
-const Form = props => (
-	<View>
-		<TextInput value={props.values.email} onChangeText={text => props.setFieldValue('email', text)} />
-
-		<TextInput value={props.values.password} onChangeText={text => props.setFieldValue('password', text)} />
-
-		<Button onPress={props.handleSubmit} title="Login" />
-	</View>
+const SignUpScreen = () => (
+	<StyledView>
+		<FormikView>
+		<StyledView2>
+			<Formik
+				initialValues={{ email: '', password: '' }}
+				onSubmit={values => Alert.alert(JSON.stringify(values))}
+				//onSubmit={({ value }, formikBag) => onSubmit(value, formikBag)}
+				validationSchema={yup.object().shape({
+					email: yup
+						.string()
+						.email()
+						.required(),
+					password: yup
+						.string()
+						.min(6)
+						.required(),
+				})}
+			>
+				{({ values, handleChange, errors, setFieldTouched, touched, isValid, handleSubmit }) => (
+					<Fragment>
+						<TextInput
+							value={values.email}
+							onChangeText={handleChange('email')}
+							onBlur={() => setFieldTouched('email')}
+							placeholder="E-mail"
+						/>
+						{touched.email && errors.email && (
+							<Text style={{ fontSize: 10, color: 'red' }}>{errors.email}</Text>
+						)}
+						<TextInput
+							value={values.password}
+							onChangeText={handleChange('password')}
+							placeholder="Password"
+							onBlur={() => setFieldTouched('password')}
+							secureTextEntry={true}
+						/>
+						{touched.password && errors.password && (
+							<Text style={{ fontSize: 10, color: 'red' }}>{errors.password}</Text>
+						)}
+						<ViewButton>
+							<Button title="Sign In" disabled={!isValid} onPress={handleSubmit} />
+							</ViewButton>
+					</Fragment>
+				)}
+			</Formik>
+			</StyledView2>
+		</FormikView>
+	</StyledView>
 );
 
-const teste = "withFormik({";/*
-	mapPropsToValues: () => ({ email: '', password: '' }),
-  
-	handleSubmit: (values) => {
-	  console.log(values);
-	}
-  })(Form);*/
-
-const LoginScreen = ({ navigation }) => <StyledView>{teste}</StyledView>;
-
-LoginScreen.navigationOptions = {
-	title: 'Login',
+SignUpScreen.navigationOptions = {
+	title: 'SignUp',
 	headerStyle: {
 		backgroundColor: '#219653',
 	},
@@ -35,4 +67,4 @@ LoginScreen.navigationOptions = {
 		fontWeight: 'bold',
 	},
 };
-export default LoginScreen;
+export default SignUpScreen;
